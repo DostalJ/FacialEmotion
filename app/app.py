@@ -37,29 +37,28 @@ def write_on_image(emotions):
     print('Surprise:', emotions[4])
     print('Neutral:', emotions[5])
     print('-'*40)
-
     cv2.putText(img=image, org=(50,50), # sloupce, radky
-                text='Angry: {:2f}%'.format(emotions[0]*100),
+                text='Angry: {:.1f}%'.format(emotions[0]*100),
                 fontScale=1, fontFace=6,
                 thickness=2, color=(0,255,0))
     cv2.putText(img=image, org=(50,100), # sloupce, radky
-                text='Fear: {:.2f}%'.format(emotions[1]*100),
+                text='Fear: {:.1f}%'.format(emotions[1]*100),
                 fontScale=1, fontFace=6,
                 thickness=2, color=(0,255,0))
     cv2.putText(img=image, org=(50,150), # sloupce, radky
-                text='Happy: {:.2f}%'.format(emotions[2]*100),
+                text='Happy: {:.1f}%'.format(emotions[2]*100),
                 fontScale=1, fontFace=6,
                 thickness=2, color=(0,255,0))
     cv2.putText(img=image, org=(50,200), # sloupce, radky
-                text='Sad: {:.2f}%'.format(emotions[3]*100),
+                text='Sad: {:.1f}%'.format(emotions[3]*100),
                 fontScale=1, fontFace=6,
                 thickness=2, color=(0,255,0))
     cv2.putText(img=image, org=(50,250), # sloupce, radky
-                text='Surprise: {:.2f}%'.format(emotions[4]*100),
+                text='Surprise: {:.1f}%'.format(emotions[4]*100),
                 fontScale=1, fontFace=6,
                 thickness=2, color=(0,255,0))
     cv2.putText(img=image, org=(50,300), # sloupce, radky
-                text='Neutral: {:.2f}%'.format(emotions[5]*100),
+                text='Neutral: {:.1f}%'.format(emotions[5]*100),
                 fontScale=1, fontFace=6,
                 thickness=2, color=(0,255,0))
 
@@ -72,8 +71,6 @@ i = 0
 while True:
     _, image = cap.read()
 
-    # k1 = cv2.waitKey(5) & 0xFF
-    # if k1 == 13:
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray)#, 1.3, 5)
     if len(faces) != 0:
