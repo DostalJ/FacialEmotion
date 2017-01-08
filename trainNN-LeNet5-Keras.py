@@ -69,7 +69,7 @@ graph.add(Flatten())
 graph.add(Dropout(p=0.7))
 graph.add(Dense(output_dim=hidden, init='normal', activation='relu',
                         ))
-graph.add(Dropout(p=0.5))
+graph.add(Dropout(p=0.7))
 graph.add(Dense(output_dim=num_labels, init='normal', activation='softmax',
                         ))
 
@@ -79,9 +79,12 @@ graph.compile(optimizer='adam',
 graph.fit(x=train_data, y=train_labels, batch_size=batch_size,
           nb_epoch=nb_epoch, validation_data=valid)
 
-
-graph.save('LeNet5.h5')
-
+save_file = 'LeNet5.h5'
+try:
+    graph.save(save_file)
+    print('Graph {} successfuly saved.'.format(save_file))
+except Exception as e:
+    print('Graph wasn\'t saved:', e)
 
 scores = graph.evaluate(x=test_data, y=test_labels)
 print('{}: {:.2f}%'.format(graph.metrics_names[1], scores[1]*100))
