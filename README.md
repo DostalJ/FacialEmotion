@@ -9,6 +9,7 @@ They contain about 200 MB of raw picture data in 48x48 pixel format. All images 
 | Emotion   | Anger | Disgust | Fear | Happy | Sad | Surprise | Neutral |
 
 Because there is only few pictures of emotion 'disgust', we've merged this emotion with 'anger'. Similarly to this [project](https://github.com/JostineHo/mememoji/blob/master/src/fer2013datagen.py).
+
 | Label    | 0 | 1 | 2 | 3 | 4 | 5 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Emotion   | Anger | Fear | Happy | Sad | Surprise | Neutral |
